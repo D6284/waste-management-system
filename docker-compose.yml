@@ -1,1 +1,14 @@
 # (paste the docker-compose.yml contents from above)
+cat > docker-compose.yml <<'EOF'
+version: "3.8"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: wms-frontend:local
+    ports:
+      - "8080:80"
+    environment:
+      NODE_ENV: production
+EOF
